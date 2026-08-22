@@ -11,26 +11,24 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        if (head == NULL || head->next == NULL)
+         if(head==NULL || head->next==NULL)
             return head;
-
-        ListNode* odd = head;
+        ListNode *odd=head;
         ListNode* even = head->next;
-        ListNode* evenHead = even;
+        ListNode *evenhead= even;
+       
 
-        while (even != NULL && even->next != NULL) {
-            // Connect odd nodes
-            odd->next = even->next;
-            odd = odd->next;
+            while(even && even->next!=NULL){
+                odd->next=even->next;   //odd ke next address me next odd add d
+                odd=odd->next;
 
-            // Connect even nodes
-            even->next = odd->next;
-            even = even->next;
-        }
+                even->next=odd->next;
+                even=even->next;
+            }
+              odd->next=evenhead;
+              return head;
+        
 
-        // Attach even list after odd list
-        odd->next = evenHead;
-
-        return head;
+        
     }
 };
