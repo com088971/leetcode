@@ -5,7 +5,8 @@ public:
 
         for (int x : nums) {
             if (x != val) {
-                nums[k++] = x;
+                nums[k] = x;
+                k++;
             }
         }
 
